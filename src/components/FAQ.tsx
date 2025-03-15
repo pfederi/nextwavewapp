@@ -56,6 +56,14 @@ const iosFaqs = [
   }
 ]
 
+// Android-specific FAQs
+const androidFaqs = [
+  {
+    question: 'How does the weather integration work?',
+    answer: 'NextWave uses the OpenWeather API to provide live weather data for your session. You can enable or disable the weather feature in the settings.'
+  }
+]
+
 // Platform-specific FAQs that have different answers based on OS
 function getPlatformSpecificFaqs(selectedOS: 'ios' | 'android') {
   return [
@@ -143,7 +151,7 @@ export default function FAQ() {
   // Combine FAQs based on selected OS, always putting support FAQ last
   const faqs = selectedOS === 'ios' 
     ? [...commonFaqs, ...platformSpecificFaqs, ...iosFaqs, supportFaq] 
-    : [...commonFaqs, ...platformSpecificFaqs, supportFaq]
+    : [...commonFaqs, ...platformSpecificFaqs, ...androidFaqs, supportFaq]
 
   return (
     <div id="faq" className="py-24 bg-white">

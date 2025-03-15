@@ -7,13 +7,14 @@ export default function Footer() {
     <footer className="py-6 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          <Link 
-            href="/privacy" 
+          <a 
+            href="https://nextwaveapp.ch/privacy.html" 
             className="text-[#407d97] hover:text-[#59a8c7] transition-colors underline underline-offset-2"
-            scroll={true}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Privacy Policy
-          </Link>
+          </a>
           <div className="text-[#407d97]">
             Made with <span className="text-[#59a8c7]">♥</span> by Lakeshore Studios
           </div>
