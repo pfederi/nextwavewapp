@@ -223,10 +223,10 @@ export default function Navigation() {
                   exit="exit"
                   className="flex items-center"
                 >
-                  <div className="flex items-center bg-gray-200 rounded-full p-0.5 w-24">
+                  <div className="flex items-center bg-gray-200 rounded-full p-1 w-32">
                     <button
                       onClick={() => setSelectedOS('ios')}
-                      className={`relative flex-1 py-0.5 rounded-full text-xs font-medium transition-all duration-200 ${
+                      className={`relative flex-1 py-1 px-2 rounded-full text-xs font-medium transition-all duration-200 ${
                         selectedOS === 'ios' 
                           ? 'text-white' 
                           : 'text-gray-700'
@@ -243,7 +243,7 @@ export default function Navigation() {
                     </button>
                     <button
                       onClick={() => setSelectedOS('android')}
-                      className={`relative flex-1 py-0.5 rounded-full text-xs font-medium transition-all duration-200 ${
+                      className={`relative flex-1 py-1 px-2 rounded-full text-xs font-medium transition-all duration-200 ${
                         selectedOS === 'android' 
                           ? 'text-white' 
                           : 'text-gray-700'
