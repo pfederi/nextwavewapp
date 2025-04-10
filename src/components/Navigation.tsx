@@ -169,7 +169,7 @@ export default function Navigation() {
                     >
                       {selectedOS === 'android' && (
                         <motion.div
-                          className="absolute inset-0 bg-green-500 rounded-full"
+                          className="absolute inset-0 bg-green-500 rounded-full z-0"
                           layoutId="osBackgroundNav"
                           transition={{ type: 'spring', duration: 0.6 }}
                         />
@@ -234,7 +234,7 @@ export default function Navigation() {
                     >
                       {selectedOS === 'ios' && (
                         <motion.div
-                          className="absolute inset-0 bg-blue-500 rounded-full"
+                          className="absolute inset-0 bg-blue-500 rounded-full z-0"
                           layoutId="osBackgroundNavMobile"
                           transition={{ type: 'spring', duration: 0.6 }}
                         />
@@ -251,7 +251,7 @@ export default function Navigation() {
                     >
                       {selectedOS === 'android' && (
                         <motion.div
-                          className="absolute inset-0 bg-green-500 rounded-full"
+                          className="absolute inset-0 bg-green-500 rounded-full z-0"
                           layoutId="osBackgroundNavMobile"
                           transition={{ type: 'spring', duration: 0.6 }}
                         />

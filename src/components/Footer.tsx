@@ -16,7 +16,15 @@ export default function Footer() {
             Privacy Policy
           </a>
           <div className="text-[#407d97]">
-            Made with <span className="text-[#59a8c7]">♥</span> by Lakeshore Studios
+            Made with <span className="text-[#59a8c7]">♥</span> by{' '}
+            <a 
+              href="https://lakeshorestudios.ch" 
+              className="hover:text-[#59a8c7] transition-colors underline underline-offset-2"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Lakeshore Studios
+            </a>
           </div>
         </div>
       </div>

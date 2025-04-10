@@ -31,6 +31,14 @@ const commonFaqs = [
   {
     question: 'Can I save my favorite wake spots?',
     answer: 'Yes! You can store up to 5 favorite stations, and the nearest station is automatically displayed.'
+  },
+  {
+    question: 'Why are no departure times showing?',
+    answer: (
+      <div>
+        <p className="mb-3 text-[#407d97]">If you're not seeing any departure times, this might be because the <a href="https://transport.opendata.ch" className="text-[#59a8c7] hover:text-[#407d97] underline underline-offset-2" target="_blank" rel="noopener noreferrer">transport.opendata.ch</a> API service is temporarily unavailable. This is a third-party service that NextWave depends on to show departure times. When this happens, you'll see an error message, and there's nothing else to do but wait until the service is back online.</p>
+      </div>
+    )
   }
 ]
 
