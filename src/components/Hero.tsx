@@ -46,38 +46,6 @@ const WaterParticles = () => {
   )
 }
 
-// Floating boat animation
-const FloatingBoat = () => {
-  return (
-    <motion.div
-      className="absolute right-[5%] bottom-[15%] w-16 h-16 md:w-24 md:h-24"
-      animate={{
-        y: [0, -15, 0],
-        rotate: [0, 5, 0, -5, 0],
-      }}
-      transition={{
-        duration: 8,
-        repeat: Infinity,
-        ease: "easeInOut",
-      }}
-    >
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M3 17H21L19 12L16 8L13 7H10L7 9L4 12L3 17Z"
-          fill="rgba(255,255,255,0.2)"
-          stroke="rgba(255,255,255,0.4)"
-          strokeWidth="1"
-        />
-        <path
-          d="M12 7V2M12 7L8 12M12 7L16 12"
-          stroke="rgba(255,255,255,0.4)"
-          strokeWidth="1"
-        />
-      </svg>
-    </motion.div>
-  )
-}
-
 // Function to detect user device type
 const detectDeviceType = (): 'ios' | 'android' | null => {
   if (typeof window === 'undefined' || !window.navigator) {
@@ -122,9 +90,6 @@ export default function Hero() {
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#e6f4f9]">
       {/* Water particles animation */}
       <WaterParticles />
-      
-      {/* Floating boat animation */}
-      <FloatingBoat />
       
       {/* Animated Waves */}
       <div className="absolute inset-0 z-0">

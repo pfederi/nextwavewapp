@@ -81,34 +81,26 @@ export default function Download() {
               </motion.div>
             </a>
             
-            <div className="relative">
-              <div className="absolute -top-3 -right-3 z-10">
-                <div className="bg-yellow-400 text-yellow-900 font-bold py-1 px-4 rounded-md text-sm shadow-md transform rotate-[-8deg]">
-                  Coming Soon
-                </div>
-              </div>
-              <a
-                href="https://play.google.com/store/apps/details?id=com.nextwave.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`inline-block transition-opacity duration-300 ${selectedOS === 'ios' ? 'opacity-40 hover:opacity-100' : 'opacity-100'}`}
-                onClick={(e) => e.preventDefault()}
+            <a
+              href="https://play.google.com/store/apps/details?id=com.lakeshorestudios.nextwave"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`inline-block transition-opacity duration-300 ${selectedOS === 'ios' ? 'opacity-40 hover:opacity-100' : 'opacity-100'}`}
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center h-[60px]"
               >
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex items-center h-[60px] relative"
-                >
-                  <Image
-                    src="/google-play-badge.svg"
-                    alt="Get it on Google Play"
-                    width={200}
-                    height={60}
-                    className="h-auto"
-                  />
-                </motion.div>
-              </a>
-            </div>
+                <Image
+                  src="/google-play-badge.svg"
+                  alt="Get it on Google Play"
+                  width={200}
+                  height={60}
+                  className="h-auto"
+                />
+              </motion.div>
+            </a>
           </motion.div>
         </div>
       </div>
