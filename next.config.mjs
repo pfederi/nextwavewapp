@@ -14,6 +14,7 @@ const nextConfig = {
     loader: 'custom',
     loaderFile: './image-loader.js',
   },
+  assetPrefix: '',
   reactStrictMode: true,
   experimental: {
     optimizePackageImports: ['framer-motion']
