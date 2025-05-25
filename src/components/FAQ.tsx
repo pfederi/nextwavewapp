@@ -10,7 +10,16 @@ const commonFaqs = [
     question: 'What devices is NextWave compatible with?',
     answer: (
       <div>
-        <p className="mb-3 text-[#407d97]">NextWave is compatible with iOS devices running iOS 17.6 or later. Android support will not be available. Sourcecode is available on <a href="https://github.com/pfederi/Next-Wave">GitHub</a> if you want to build it yourself.</p>
+        <p className="mb-3 text-[#407d97]">NextWave is compatible with:</p>
+        <ul className="list-disc pl-5 space-y-1 text-[#407d97]">
+          <li>iOS devices running iOS 17.6 or later</li>
+          <li>Android devices running Android 8.0 (API Level 26) or later</li>
+        </ul>
+        <p className="mt-3 text-[#407d97]">The source code is available on GitHub for both platforms:</p>
+        <ul className="list-disc pl-5 space-y-1 text-[#407d97]">
+          <li><a href="https://github.com/pfederi/Next-Wave" className="text-[#59a8c7] hover:text-[#407d97] underline underline-offset-2">iOS version</a></li>
+          <li><a href="https://github.com/pfederi/NextWaveAndroid" className="text-[#59a8c7] hover:text-[#407d97] underline underline-offset-2">Android version</a></li>
+        </ul>
       </div>
     )
   },
