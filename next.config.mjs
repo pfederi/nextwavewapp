@@ -4,17 +4,18 @@ const nextConfig = {
   basePath: '',
   images: {
     unoptimized: true,
+    domains: ['nextwaveapp.ch'],
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '**',
+        hostname: 'nextwaveapp.ch',
       },
     ],
     path: '/',
     loader: 'custom',
     loaderFile: './image-loader.js',
   },
-  assetPrefix: '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? 'https://nextwaveapp.ch' : '',
   reactStrictMode: true,
   experimental: {
     optimizePackageImports: ['framer-motion']

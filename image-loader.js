@@ -4,11 +4,10 @@ export default function customImageLoader({ src }) {
     return src;
   }
   
-  // Wenn der Pfad bereits mit / beginnt, entferne den führenden /
-  if (src.startsWith('/')) {
-    return src.slice(1);
-  }
+  // Entferne führende Slashes
+  const cleanPath = src.replace(/^\/+/, '');
   
-  // Andernfalls gib den Pfad direkt zurück
-  return src;
+  // Konstruiere den vollständigen Pfad
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || '';
+  return `${baseUrl}/${cleanPath}`;
 } 
