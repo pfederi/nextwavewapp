@@ -150,7 +150,7 @@ export default function Hero() {
           {/* OS Switch */}
           <div id="hero-os-selector" className="mt-8 mb-4 flex flex-col items-center justify-center">
             <p className="text-sm text-gray-500 mb-2">Select your device</p>
-            <div className="flex items-center bg-gray-200 rounded-full p-1 w-64">
+            <div className="flex items-center bg-gray-200 rounded-full p-1 w-96">
               <button
                 onClick={() => setSelectedOS('ios')}
                 className={`relative flex-1 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
@@ -166,7 +166,12 @@ export default function Hero() {
                     transition={{ type: 'spring', duration: 0.6 }}
                   />
                 )}
-                <span className="relative z-10">iOS</span>
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                  </svg>
+                  iOS & WatchOS
+                </span>
               </button>
               <button
                 onClick={() => setSelectedOS('android')}
@@ -183,9 +188,29 @@ export default function Hero() {
                     transition={{ type: 'spring', duration: 0.6 }}
                   />
                 )}
-                <span className="relative z-10">Android</span>
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zM20.5 8c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zM15.53 2.16l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48C13.85 1.23 12.95 1 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/>
+                  </svg>
+                  Android
+                </span>
               </button>
             </div>
+            
+            {/* Coming Soon Banner */}
+            {selectedOS === 'ios' && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="mt-3 inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-100 to-blue-100 rounded-full border border-purple-200"
+              >
+                <svg className="w-4 h-4 text-purple-600" viewBox="0 0 14.7266 20.9082" fill="currentColor">
+                  <path d="M0.566406 14.4043C0.566406 15.918 1.16211 17.0312 2.26562 17.6367C2.80273 17.9199 3.11523 18.2812 3.31055 18.9355L3.62305 19.9805C3.80859 20.6055 4.24805 20.9082 4.90234 20.9082L9.41406 20.9082C10.0879 20.9082 10.498 20.6152 10.6836 19.9805L11.0059 18.9355C11.2012 18.2812 11.5137 17.9199 12.0508 17.6367C13.1543 17.0312 13.75 15.918 13.75 14.4043L13.75 6.50391C13.75 4.99023 13.1543 3.88672 12.0508 3.27148C11.5137 2.98828 11.2012 2.62695 11.0059 1.98242L10.6836 0.927734C10.5176 0.3125 10.0781 0 9.41406 0L4.90234 0C4.24805 0 3.80859 0.302734 3.62305 0.927734L3.31055 1.98242C3.125 2.61719 2.8125 2.99805 2.26562 3.27148C1.17188 3.85742 0.566406 4.9707 0.566406 6.50391ZM1.99219 14.1992L1.99219 6.71875C1.99219 5.26367 2.8418 4.38477 4.26758 4.38477L10.0488 4.38477C11.4746 4.38477 12.3242 5.26367 12.3242 6.71875L12.3242 14.1992C12.3242 15.6445 11.4746 16.5234 10.0488 16.5234L4.26758 16.5234C2.8418 16.5234 1.99219 15.6445 1.99219 14.1992ZM13.5352 9.76562L13.8867 9.76562C14.3945 9.76562 14.7266 9.42383 14.7266 8.86719L14.7266 7.54883C14.7266 6.99219 14.3945 6.65039 13.8867 6.65039L13.5352 6.65039Z"/>
+                </svg>
+                <span className="text-sm font-medium text-purple-700">Coming Soon: WatchOS App</span>
+              </motion.div>
+            )}
           </div>
         </motion.div>
 

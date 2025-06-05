@@ -4,8 +4,15 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useOS } from '@/context/OSContext'
 
+// Interface for FAQ items
+interface FAQItem {
+  question: string;
+  answer: string | JSX.Element;
+  tags?: string[];
+}
+
 // Common FAQs for both platforms (excluding support which will be added last)
-const commonFaqs = [
+const commonFaqs: FAQItem[] = [
   {
     question: 'What devices is NextWave compatible with?',
     answer: (
@@ -52,7 +59,7 @@ const commonFaqs = [
 ]
 
 // Support FAQ that will always be last
-const supportFaq = {
+const supportFaq: FAQItem = {
   question: 'Where can I get support?',
   answer: (
     <div>
@@ -62,19 +69,61 @@ const supportFaq = {
 }
 
 // iOS-specific FAQs
-const iosFaqs = [
+const iosFaqs: FAQItem[] = [
   {
     question: 'How do smart notifications work?',
-    answer: "You can set alerts by swiping left on a wave. Optionally, you can set a notification time in the settings for 3, 5, 10, or 15 minutes before a wake arrives, ensuring you're in the right spot at the right time."
+    answer: "You can set alerts by swiping left on a wave. Optionally, you can set a notification time in the settings for 3, 5, 10, or 15 minutes before a wake arrives, ensuring you're in the right spot at the right time.",
+    tags: ['iOS']
   },
   {
     question: 'How does the weather integration work?',
-    answer: 'NextWave uses the OpenWeather API to provide live weather data for your session. You can enable or disable the weather feature in the settings.'
+    answer: 'NextWave uses the OpenWeather API to provide live weather data for your session. You can enable or disable the weather feature in the settings.',
+    tags: ['iOS']
+  },
+  {
+    question: 'How do WatchOS complications work?',
+    answer: (
+      <div>
+        <p className="mb-3 text-[#407d97]">WatchOS complications display the next departure time directly on your watch face:</p>
+        <ul className="list-disc pl-5 space-y-1 text-[#407d97]">
+          <li>Shows information from your nearest station when location is enabled</li>
+          <li>Or displays data from your selected favorite station</li>
+          <li>Updates automatically to keep information current</li>
+          <li>Tap the complication to open the full NextWave watch app</li>
+        </ul>
+      </div>
+    ),
+    tags: ['WatchOS']
+  },
+  {
+    question: 'What WatchOS version is required?',
+    answer: 'NextWave for Apple Watch requires watchOS 10.0 or later. The watch app works in conjunction with the iPhone app and requires an active iPhone connection for initial data sync.',
+    tags: ['WatchOS']
+  },
+  {
+    question: 'How many favorite stations can I track on my Apple Watch?',
+    answer: (
+      <div>
+        <p className="mb-3 text-[#407d97]">You can track up to 5 favorite stations on your Apple Watch:</p>
+        <ul className="list-disc pl-5 space-y-1 text-[#407d97]">
+          <li>Each favorite shows the next 3 departure times</li>
+          <li>Favorites are managed through the iPhone app</li>
+          <li>Location-based updates work when enabled</li>
+          <li>Data syncs automatically between iPhone and Watch</li>
+        </ul>
+      </div>
+    ),
+    tags: ['WatchOS']
+  },
+  {
+    question: 'Does the Apple Watch app work independently?',
+    answer: 'The Apple Watch app requires your iPhone to be nearby for real-time data updates. However, recently cached departure information may be available for a short time when the iPhone is not accessible.',
+    tags: ['WatchOS']
   }
 ]
 
 // Android-specific FAQs
-const androidFaqs = [
+const androidFaqs: FAQItem[] = [
   {
     question: 'How does the weather integration work?',
     answer: 'NextWave uses the OpenWeather API to provide live weather data for your session. You can enable or disable the weather feature in the settings.'
@@ -82,7 +131,7 @@ const androidFaqs = [
 ]
 
 // Platform-specific FAQs that have different answers based on OS
-function getPlatformSpecificFaqs(selectedOS: 'ios' | 'android') {
+function getPlatformSpecificFaqs(selectedOS: 'ios' | 'android'): FAQItem[] {
   return [
     {
       question: 'Do I need to allow location access?',
@@ -111,7 +160,7 @@ function getPlatformSpecificFaqs(selectedOS: 'ios' | 'android') {
   ];
 }
 
-function FAQItem({ question, answer }: { question: string; answer: string | JSX.Element }) {
+function FAQItem({ question, answer, tags }: { question: string; answer: string | JSX.Element; tags?: string[] }) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -123,7 +172,20 @@ function FAQItem({ question, answer }: { question: string; answer: string | JSX.
         className="py-6 w-full flex justify-between items-center text-left focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className="text-lg font-medium text-[#2c5461]">{question}</span>
+        <div className="flex items-center gap-3">
+          <span className="text-lg font-medium text-[#2c5461]">{question}</span>
+          {tags && tags.map((tag) => (
+            <span key={tag} className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+              tag === 'iOS' 
+                ? 'bg-blue-100 text-blue-800' 
+                : tag === 'WatchOS'
+                ? 'bg-purple-100 text-purple-800'
+                : 'bg-green-100 text-green-800'
+            }`}>
+              {tag}
+            </span>
+          ))}
+        </div>
         <span className="ml-6 flex-shrink-0">
           <motion.svg
             animate={{ rotate: isOpen ? 180 : 0 }}
@@ -184,7 +246,7 @@ export default function FAQ() {
         </div>
         <div className="mt-20 max-w-3xl mx-auto">
           {faqs.map((faq) => (
-            <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />
+            <FAQItem key={faq.question} question={faq.question} answer={faq.answer} tags={faq.tags} />
           ))}
         </div>
       </div>
