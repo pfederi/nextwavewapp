@@ -194,6 +194,13 @@ export default function Navigation() {
               Screenshots
             </a>
             <a 
+              href="#rules" 
+              onClick={(e) => scrollToSection('rules', e)}
+              className="text-[#407d97] hover:text-[#59a8c7] transition-colors"
+            >
+              Rules
+            </a>
+            <a 
               href="#faq" 
               onClick={(e) => scrollToSection('faq', e)}
               className="text-[#407d97] hover:text-[#59a8c7] transition-colors"
@@ -294,6 +301,13 @@ export default function Navigation() {
             className="block px-3 py-2 rounded-md text-[#407d97] hover:text-[#59a8c7] hover:bg-[#e6f4f9]"
           >
             Screenshots
+          </a>
+          <a
+            href="#rules"
+            onClick={(e) => scrollToSection('rules', e)}
+            className="block px-3 py-2 rounded-md text-[#407d97] hover:text-[#59a8c7] hover:bg-[#e6f4f9]"
+          >
+            Rules
           </a>
           <a
             href="#faq"

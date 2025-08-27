@@ -5,6 +5,7 @@ import Hero from './Hero'
 import Features from './Features'
 import Screenshots from './Screenshots'
 import FAQ from './FAQ'
+import WakethievingRules from './WakethievingRules'
 import Download from './Download'
 import Navigation from './Navigation'
 import Footer from './Footer'
@@ -37,6 +38,7 @@ export default function ClientPage() {
       <Features />
       <Screenshots />
       <BuyMeCoffee />
+      <WakethievingRules />
       <FAQ />
       <Download />
       <Footer />
