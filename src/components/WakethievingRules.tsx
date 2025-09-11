@@ -125,14 +125,14 @@ function DynamicRuleCard({ rule, icons }: { rule: Rule; icons: Record<string, st
         <h3 className="text-xl font-semibold text-[#2c5461]">{rule.title}</h3>
       </div>
       <div className="flex-1">
-        <RuleContent content={rule.content} icons={icons} />
+        <RuleContent content={rule.content} icons={icons} ruleId={rule.id} />
       </div>
     </motion.div>
   );
 }
 
 // Dynamic content renderer
-function RuleContent({ content, icons }: { content: RuleContent; icons: Record<string, string> }) {
+function RuleContent({ content, icons, ruleId }: { content: RuleContent; icons: Record<string, string>; ruleId: string }) {
   return (
     <div className="flex flex-col h-full">
       <div className="flex-1 space-y-4">
@@ -231,24 +231,20 @@ function RuleContent({ content, icons }: { content: RuleContent; icons: Record<s
           </div>
         )}
 
-        {/* Equipment-specific info box */}
-        {content.equipment && content.info && (
+        {/* Equipment-specific info box - Local Restube info for safety-equipment */}
+        {ruleId === 'safety-equipment' && (
           <div className="bg-[#e6f3f7] p-3 rounded-md border-l-4 border-[#59a8c7]">
             <div className="flex items-start gap-2">
               <SvgIcon iconKey="info" icons={icons} className="w-4 h-4 text-[#59a8c7] mt-0.5 flex-shrink-0" />
               <div className="text-sm text-[#407d97] italic">
-                {content.info.link ? (
-                  <a
-                    href={content.info.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#59a8c7] hover:text-[#407d97] underline underline-offset-2"
-                  >
-                    {content.info.text}
-                  </a>
-                ) : (
-                  <p>{content.info.text}</p>
-                )}
+                <a
+                  href="https://indiana-paddlesurf.com/de_ch/shop/accessories/safety.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#59a8c7] hover:text-[#407d97] underline underline-offset-2"
+                >
+                  Restube offers inflatable life jackets perfect for this requirement. 10% discount with code: FEDERI10X
+                </a>
               </div>
             </div>
           </div>
