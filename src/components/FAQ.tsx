@@ -77,7 +77,32 @@ const iosFaqs: FAQItem[] = [
   },
   {
     question: 'How does the weather integration work?',
-    answer: 'NextWave uses the OpenWeather API to provide live weather data for your session. You can enable or disable the weather feature in the settings.',
+    answer: 'NextWave uses the OpenWeather API to provide live weather data for your session. Individual weather data is shown for each departure time, including pressure trends over a 6-hour rolling window. You can enable or disable the weather feature in the settings.',
+    tags: ['iOS']
+  },
+  {
+    question: 'What is the wave rating system?',
+    answer: (
+      <div>
+        <p className="mb-3 text-[#407d97]">NextWave calculates wave ratings (1-3 waves) for Lake Zurich ships based on scientific ship data:</p>
+        <ul className="list-disc pl-5 space-y-1 text-[#407d97]">
+          <li>Strong waves (3): MS Panta Rhei, MS Albis, EMS Uetliberg, EMS Pfannenstiel</li>
+          <li>Medium waves (2): MS Wädenswil, MS Limmat, MS Helvetia, MS Linth, DS Stadt Zürich, DS Stadt Rapperswil</li>
+          <li>Light waves (1): MS Bachtel, MS Säntis, and other ships</li>
+        </ul>
+        <p className="mt-3 text-[#407d97]">Ratings are calculated based on ship displacement, length, width, wave energy, and impact force. This feature is only available for Lake Zurich stations.</p>
+      </div>
+    ),
+    tags: ['iOS']
+  },
+  {
+    question: 'How does the Albis-Class filter work?',
+    answer: 'The Albis-Class filter shows only departures with the best wave-producing ships (MS Albis, EMS Uetliberg, EMS Pfannenstiel) on Lake Zurich. Activate it by flipping your device face-down in the departure view. An orange banner indicates when the filter is active. This feature is only available for Lake Zurich stations.',
+    tags: ['iOS']
+  },
+  {
+    question: 'Where does the water temperature and level data come from?',
+    answer: 'NextWave displays real-time water temperature and water level data for 30+ Swiss lakes. Water levels are shown as differences from historical averages (e.g., "+5 cm" or "-3 cm") to help you assess water depth conditions.',
     tags: ['iOS']
   },
   {

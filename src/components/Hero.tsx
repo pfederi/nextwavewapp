@@ -144,7 +144,7 @@ export default function Hero() {
             <span className="block text-[#59a8c7]">Catch Every Wake, Anytime</span>
           </h1>
           <p className="text-xl md:text-2xl text-[#407d97] max-w-3xl mx-auto">
-            NextWave helps wake foilers across Swiss lakes by providing real-time boat schedules, ensuring you never miss the perfect wake for your foiling session.
+            NextWave helps wake foilers across Swiss lakes by providing real-time boat schedules, wave ratings, water conditions, and weather data - ensuring you never miss the perfect wake for your foiling session.
           </p>
           
           {/* OS Switch */}

@@ -44,6 +44,35 @@ const iosFeatures = [
     )
   },
   {
+    title: 'Water Temperature & Level',
+    description: 'Real-time water temperature and water level data for 30+ Swiss lakes. See water level differences from historical averages to assess conditions.',
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+      </svg>
+    )
+  },
+  {
+    title: 'Wave Rating System',
+    description: 'Scientific wave ratings (1-3 waves) based on ship displacement, length, and wave energy. Know which boats create the best wakes for foiling before they arrive.',
+    badge: 'Lake Zurich',
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+      </svg>
+    )
+  },
+  {
+    title: 'Albis-Class Filter',
+    description: 'Filter departures to show only Albis-Class ships (MS Albis, EMS Uetliberg, EMS Pfannenstiel) - the boats that create the best waves. Activate with device flip gesture.',
+    badge: 'Lake Zurich',
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+      </svg>
+    )
+  },
+  {
     title: 'WatchOS Complications',
     description: 'Get next departure times directly on your watch face. Display information from nearest location or your favorite station for quick access.',
     icon: (
@@ -111,6 +140,7 @@ interface Feature {
   title: string;
   description: string;
   icon: React.ReactNode;
+  badge?: string;
 }
 
 export default function Features() {
@@ -163,7 +193,14 @@ export default function Features() {
                 <div className="flex items-center justify-center h-12 w-12 rounded-md bg-[#59a8c7] text-white mb-4 mx-auto">
                   {feature.icon}
                 </div>
-                <h3 className="text-lg font-medium text-[#2c5461] text-center">{feature.title}</h3>
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <h3 className="text-lg font-medium text-[#2c5461] text-center">{feature.title}</h3>
+                  {feature.badge && (
+                    <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-[#59a8c7] text-white">
+                      {feature.badge}
+                    </span>
+                  )}
+                </div>
                 <p className="mt-2 text-base text-[#407d97] text-center">{feature.description}</p>
               </motion.div>
             ))}
