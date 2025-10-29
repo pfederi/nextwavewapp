@@ -45,7 +45,7 @@ const iosFeatures = [
   },
   {
     title: 'Water Temperature & Level',
-    description: 'Real-time water temperature and water level data for 30+ Swiss lakes. See water level differences from historical averages to assess conditions.',
+    description: 'Real-time water temperature and current water level compared to historical averages for 30+ Swiss lakes. Assess water depth conditions at a glance.',
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -190,18 +190,18 @@ export default function Features() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="bg-[#f8fcfd] p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
               >
-                <div className="flex items-center justify-center h-12 w-12 rounded-md bg-[#59a8c7] text-white mb-4 mx-auto">
+                <div className="flex items-center justify-center h-12 w-12 rounded-md bg-[#59a8c7] text-white mb-4">
                   {feature.icon}
                 </div>
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <h3 className="text-lg font-medium text-[#2c5461] text-center">{feature.title}</h3>
-                  {feature.badge && (
-                    <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-[#59a8c7] text-white">
+                <h3 className="text-lg font-medium text-[#2c5461]">{feature.title}</h3>
+                {feature.badge && (
+                  <div className="mt-1 mb-2">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#59a8c7] text-white">
                       {feature.badge}
                     </span>
-                  )}
-                </div>
-                <p className="mt-2 text-base text-[#407d97] text-center">{feature.description}</p>
+                  </div>
+                )}
+                <p className="mt-2 text-base text-[#407d97]">{feature.description}</p>
               </motion.div>
             ))}
           </motion.div>

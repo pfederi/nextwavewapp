@@ -102,7 +102,7 @@ const iosFaqs: FAQItem[] = [
   },
   {
     question: 'Where does the water temperature and level data come from?',
-    answer: 'NextWave displays real-time water temperature and water level data for 30+ Swiss lakes. Water levels are shown as differences from historical averages (e.g., "+5 cm" or "-3 cm") to help you assess water depth conditions.',
+    answer: 'NextWave displays real-time water temperature and current water level for 30+ Swiss lakes. The water level is shown as the current height compared to the historical average (e.g., "+5 cm" or "-3 cm") to help you assess water depth conditions.',
     tags: ['iOS']
   },
   {
