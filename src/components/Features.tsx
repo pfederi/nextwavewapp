@@ -190,18 +190,20 @@ export default function Features() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="bg-[#f8fcfd] p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
               >
-                <div className="flex items-center justify-center h-12 w-12 rounded-md bg-[#59a8c7] text-white mb-4">
-                  {feature.icon}
-                </div>
-                <h3 className="text-lg font-medium text-[#2c5461]">{feature.title}</h3>
-                {feature.badge && (
-                  <div className="mt-1 mb-2">
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#59a8c7] text-white">
-                      {feature.badge}
-                    </span>
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-[#59a8c7] text-white flex-shrink-0">
+                    {feature.icon}
                   </div>
-                )}
-                <p className="mt-2 text-base text-[#407d97]">{feature.description}</p>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <h3 className="text-lg font-medium text-[#2c5461]">{feature.title}</h3>
+                    {feature.badge && (
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#59a8c7] text-white">
+                        {feature.badge}
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <p className="text-base text-[#407d97]">{feature.description}</p>
               </motion.div>
             ))}
           </motion.div>
